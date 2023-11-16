@@ -1,0 +1,13 @@
+﻿@page
+@model WebApplication2.Pages.CreatePositionModel
+
+<h2>Добавление новой должности</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <p>
+        <label>Должность</label><br />
+        <input name="Title" asp-for="Position.Title" />
+        <span asp-validation-for="Position.Title"></span>
+    </p>
+    <input type="submit" value="Создать" />
+</form>

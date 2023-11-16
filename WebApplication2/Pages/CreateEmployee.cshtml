@@ -1,0 +1,33 @@
+﻿@page
+@model WebApplication2.Pages.CreateEmployeeModel
+
+<h2>Добавление нового сотрудника</h2>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <p>
+        <label>Имя</label><br/>
+        <input name="FirstName" asp-for="Employee.LastName"/>
+        <span asp-validation-for="Employee.LastName"></span>
+
+    </p>
+    <p>
+        <label>Фамилия</label><br/>
+        <input name="LastName" asp-for="Employee.LastName"/>
+        <span asp-validation-for="Employee.LastName"></span>
+    </p>
+    <p>
+        <label>Отчество</label><br/>
+        <input name="MiddleName" asp-for="Employee.LastName"/>
+        <span asp-validation-for="Employee.LastName"></span>
+    </p>
+    <p>
+        <label>Должность:</label><br/>
+        <select name="Position">
+            @foreach (var j in Model.Positions)
+            {
+                <option>@j.Title</option>
+            }
+        </select>
+    </p>
+    <input type="submit" value="Отправить"/>
+</form>

@@ -1,0 +1,16 @@
+﻿@page
+@model WebApplication2.Pages.PositionEditModel
+
+<h2>Редактирование должности</h2>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input name="id" value="@Model.Position?.Id" type="hidden"/>
+    <p>
+        <label>Должность</label><br/>
+        <input name="Title" value="@Model.Position?.Title" asp-for="Position!.Title" />
+        <span asp-validation-for="Position!.Title"></span>
+
+    </p>
+    <input type="submit" value="Сохранить"/>
+</form>

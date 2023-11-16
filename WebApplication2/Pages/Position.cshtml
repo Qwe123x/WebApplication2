@@ -1,0 +1,55 @@
+﻿@page
+@model WebApplication2.Pages.PositionModel
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Таблица должностей</h2>
+<p><a href="/CreatePosition">Добавить должность</a></p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Должность</th>
+        <th>Действия</th>
+
+    </tr>
+    </thead>
+    <tbody>
+            @foreach (var user in Model.Positions)
+            {
+                <tr>
+                    <td>@user.Title</td>
+                    <td>
+                        <form method="post">
+                            <a asp-page="PositionEdit" asp-route-id="@user.Id">Изменить</a>
+                            <button type="submit" asp-page-handler="delete" asp-route-id="@user.Id">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+</body>

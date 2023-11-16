@@ -1,0 +1,41 @@
+﻿@page
+@model WebApplication2.Pages.EmployeeEditModel
+
+<h2>Редактирование сотрудника</h2>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input name="id" value="@Model.Employee?.Id" type="hidden"/>
+    <p>
+        <label>Фамилия</label><br/>
+        <input name="LastName" value="@Model.Employee?.LastName" asp-for="Employee!.LastName"/>
+        <span asp-validation-for="Employee!.LastName"></span>
+
+    </p>
+    <p>
+        <label>Имя</label><br/>
+        <input name="FirstName" value="@Model.Employee?.FirstName" asp-for="Employee!.LastName"/>
+        <span asp-validation-for="Employee!.FirstName"></span>
+
+    </p>
+    <p>
+        <label>Отчество</label><br/>
+        <input name="MiddleName" value="@Model.Employee?.MiddleName" asp-for="Employee!.LastName"/>
+        <span asp-validation-for="Employee!.MiddleName"></span>
+
+    </p>
+    <p>
+        <label>Время найма</label><br/>
+        <input name="HireDate" value="@Model.Employee?.HireDate"/>
+    </p>
+    <p>
+        <label>Должность</label><br/>
+        <select name="Position">
+            @foreach (var j in Model.Positions)
+            {
+                <option>@j.Title</option>
+            }
+        </select>
+    </p>
+    <input type="submit" value="Сохранить"/>
+</form>
